@@ -173,7 +173,30 @@ Parameters: 2D list of strs ; 2D list of strs ; float
 Returns: 2D list of values
 '''
 def findAminoAcidDifferences(proteinList1, proteinList2, cutoff):
-    return
+    new_list1=combineProteins(proteinList1)
+    new_list2=combineProteins(proteinList2)
+    new_list3=aminoAcidDictionary(new_list1)
+    new_list4=aminoAcidDictionary(new_list2)
+    new_list=[]
+    for i,j in new_list3.items():
+        if i!="Start" and i!="Stop" and i not in new_list:
+            new_list.append(i)
+    for i,j in new_list4.items():
+        if i!="Start" and i!="Stop" and i not in new_list:
+            new_list.append(i)
+    new_feq=[]
+    for i in new_list:
+        freq1=0
+        freq2=0
+        if i in new_list1:
+            freq1=new_list3[i]/len(new_list1)
+        if i in new_list2:
+            freq2=new_list4[i]/len(new_list2)
+        difference=freq1-freq2
+        if difference>cutoff or difference<-cutoff:
+            new_feq.append([i,freq1,freq2])
+    return new_feq        
+    
 
 
 '''
@@ -183,6 +206,7 @@ Parameters: 2D list of strs ; 2D list of values
 Returns: None
 '''
 def displayTextResults(commonalities, differences):
+    
     return
 
 
@@ -263,7 +287,8 @@ if __name__ == "__main__":
     # test.testSynthesizeProteins()
     # test.testCommonProteins()
     # test.testCombineProteins()
-    test.testAminoAcidDictionary()
+    # test.testAminoAcidDictionary()
+    test.testFindAminoAcidDifferences()
 
 
 
