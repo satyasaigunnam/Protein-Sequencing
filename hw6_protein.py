@@ -7,6 +7,7 @@ Roll Number:
 from asyncore import read
 from hashlib import new
 from json import JSONDecodeError
+from re import U
 from tkinter.filedialog import Open
 import hw6_protein_tests as test
 
@@ -88,8 +89,25 @@ Parameters: str ; str
 Returns: 2D list of strs
 '''
 def synthesizeProteins(dnaFilename, codonFilename):
-    
-    return
+    new_list=[]
+    unused=0
+    first= readFile(dnaFilename)
+    second = makeCodonDictionary(codonFilename)
+    i=0
+
+    while i < len(first):
+        new= first[i:i+3]
+        if new == 'ATG':
+            newca=dnaToRna(first,i)
+            newcall= generateProtein(newca,second)
+            new_list.append(newcall)
+            i+=3*len(newca)
+        else:
+            i=i+1
+            unused=unused+1
+    print(len(first),unused,len(new_list))            
+
+    return new_list
 
 
 def runWeek1():
@@ -224,7 +242,8 @@ if __name__ == "__main__":
     # test.testReadFile()
     # test.testDnaToRna()
     # test.testMakeCodonDictionary()
-    test.testGenerateProtein()
+    # test.testGenerateProtein()
+    test.testSynthesizeProteins()
 
 
 
