@@ -70,7 +70,15 @@ Parameters: list of strs ; dict mapping strs to strs
 Returns: list of strs
 '''
 def generateProtein(codons, codonD):
-    return
+    new_list=[]
+    for i in codons:
+        for j in codonD:
+            if i==j:
+                new_list.append(codonD[j])
+                if new_list[0] == 'Met':
+                    new_list[0]='Start'
+    
+    return new_list
 
 
 '''
@@ -80,6 +88,7 @@ Parameters: str ; str
 Returns: 2D list of strs
 '''
 def synthesizeProteins(dnaFilename, codonFilename):
+    
     return
 
 
@@ -214,7 +223,8 @@ if __name__ == "__main__":
     # runWeek1()
     # test.testReadFile()
     # test.testDnaToRna()
-    test.testMakeCodonDictionary()
+    # test.testMakeCodonDictionary()
+    test.testGenerateProtein()
 
 
 
