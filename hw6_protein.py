@@ -4,6 +4,7 @@ Name:
 Roll Number:
 """
 
+from asyncio import new_event_loop
 from asyncore import read
 from hashlib import new
 from json import JSONDecodeError
@@ -126,7 +127,7 @@ Parameters: 2D list of strs ; 2D list of strs
 Returns: 2D list of strs
 '''
 def commonProteins(proteinList1, proteinList2):
-    return
+   return
 
 
 '''
@@ -243,7 +244,8 @@ if __name__ == "__main__":
     # test.testDnaToRna()
     # test.testMakeCodonDictionary()
     # test.testGenerateProtein()
-    test.testSynthesizeProteins()
+    # test.testSynthesizeProteins()
+    test.testCommonProteins()
 
 
 
