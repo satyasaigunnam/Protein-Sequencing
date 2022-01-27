@@ -7,6 +7,7 @@ Roll Number:
 from asyncio import new_event_loop
 from asyncore import read
 from hashlib import new
+from itertools import count
 from json import JSONDecodeError
 from re import U
 from tkinter.filedialog import Open
@@ -158,8 +159,11 @@ Parameters: list of strs
 Returns: dict mapping strs to ints
 '''
 def aminoAcidDictionary(aaList):
-    
-    return
+    new_dict={}
+    for i in aaList:
+        if i not in new_dict:
+            new_dict[i]=aaList.count(i)
+    return new_dict
 
 
 '''
@@ -258,7 +262,8 @@ if __name__ == "__main__":
     # test.testGenerateProtein()
     # test.testSynthesizeProteins()
     # test.testCommonProteins()
-    test.testCombineProteins()
+    # test.testCombineProteins()
+    test.testAminoAcidDictionary()
 
 
 
