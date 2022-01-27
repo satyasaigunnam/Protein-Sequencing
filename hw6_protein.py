@@ -146,7 +146,9 @@ Parameters: 2D list of strs
 Returns: list of strs
 '''
 def combineProteins(proteinList):
-    return
+    new_list= [j for sub_list in proteinList for j in sub_list]
+
+    return new_list
 
 
 '''
@@ -156,6 +158,7 @@ Parameters: list of strs
 Returns: dict mapping strs to ints
 '''
 def aminoAcidDictionary(aaList):
+    
     return
 
 
@@ -254,7 +257,8 @@ if __name__ == "__main__":
     # test.testMakeCodonDictionary()
     # test.testGenerateProtein()
     # test.testSynthesizeProteins()
-    test.testCommonProteins()
+    # test.testCommonProteins()
+    test.testCombineProteins()
 
 
 
