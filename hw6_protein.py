@@ -6,6 +6,7 @@ Roll Number:
 
 from asyncore import read
 from hashlib import new
+from json import JSONDecodeError
 from tkinter.filedialog import Open
 import hw6_protein_tests as test
 
@@ -53,8 +54,14 @@ Returns: dict mapping strs to strs
 '''
 def makeCodonDictionary(filename):
     import json
-    return
-
+    new_dicts={}
+    new_open = open(filename,"r")
+    new_read = json.load(new_open)
+    for i in new_read:
+        for j in new_read[i]:
+            j = j.replace("T","U")
+            new_dicts[j]=i
+    return new_dicts
 
 '''
 generateProtein(codons, codonD)
@@ -206,7 +213,8 @@ if __name__ == "__main__":
     # print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")
     # runWeek1()
     # test.testReadFile()
-    test.testDnaToRna()
+    # test.testDnaToRna()
+    test.testMakeCodonDictionary()
 
 
 
