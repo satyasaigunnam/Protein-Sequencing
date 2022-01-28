@@ -264,10 +264,10 @@ Returns: list of floats
 def setupChartData(labels, proteinList):
     new_list=[]
     combine_protine=combineProteins(proteinList)
-    l2=aminoAcidDictionary(combine_protine)
+    list2=aminoAcidDictionary(combine_protine)
     for j in labels:
-        if j in l2:
-            new_list.append(l2[j]/len(combine_protine))
+        if j in list2:
+            new_list.append(list2[j]/len(combine_protine))
         else:
             new_list.append(0)
     return new_list
