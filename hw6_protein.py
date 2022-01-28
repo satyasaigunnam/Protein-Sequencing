@@ -263,8 +263,8 @@ createChart(xLabels, freqList1, label1, freqList2, label2, edgeList=None)
 Parameters: list of strs ; list of floats ; str ; list of floats ; str ; [optional] list of strs
 Returns: None
 '''
-def createChart(xLabels, freqList1, label1, freqList2, label2, edgeList=None):
-    import matplotlib.pyplot as plt
+def createChart(xLabels, freqList1, label1, freqList2, label2, edgeList="black"):
+    
     return
 
 
@@ -306,6 +306,7 @@ if __name__ == "__main__":
     # test.testAminoAcidDictionary()
     # test.testFindAminoAcidDifferences()
     runWeek2()
+    
 
 
 
