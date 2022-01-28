@@ -280,7 +280,17 @@ Parameters: list of strs ; list of floats ; str ; list of floats ; str ; [option
 Returns: None
 '''
 def createChart(xLabels, freqList1, label1, freqList2, label2, edgeList="black"):
-    
+    import matplotlib.pyplot as plt
+    w = 0.35  # the width of the bars
+
+    plt.bar(xLabels, freqList1, width=-w, align='edge', label=label1,edgecolor=edgeList)
+    plt.bar(xLabels, freqList2, width= w, align='edge', label=label2,edgecolor=edgeList)
+
+    plt.xticks(rotation="vertical")
+    plt.legend()
+    plt.title("create chart")
+
+    plt.show()
     return
 
 
@@ -323,7 +333,8 @@ if __name__ == "__main__":
     # test.testFindAminoAcidDifferences()
     # runWeek2()
     # test.testMakeAminoAcidLabels()
-    test.testSetupChartData()
+    # test.testSetupChartData()
+    test.testCreateChart()
     
 
 
