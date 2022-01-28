@@ -329,7 +329,7 @@ def runFullProgram():
     distinct_lable=makeAminoAcidLabels(human,Elephant)
     feq1=setupChartData(distinct_lable,human)
     feq2=setupChartData(distinct_lable,Elephant)
-    edges=makeEdgeList(distinct_lable,acid_dif)
+    edges=makeEdgeList(distinct_lable,acid_diff)
     createChart(distinct_lable,feq1,"human",feq2,"Elephant",edgeList=edges)
     return
 
