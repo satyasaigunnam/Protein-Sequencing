@@ -4,6 +4,9 @@ Name:
 Roll Number:
 """
 
+from asyncore import read
+from hashlib import new
+from tkinter.filedialog import Open
 import hw6_protein_tests as test
 
 project = "Protein" # don't edit this
@@ -17,7 +20,11 @@ Parameters: str
 Returns: str
 '''
 def readFile(filename):
-    return
+  new_file = open(filename,"r").read()
+  file_staring =""
+  for i in new_file.splitlines():
+      file_staring+=i
+  return file_staring
 
 
 '''
@@ -27,7 +34,15 @@ Parameters: str ; int
 Returns: list of strs
 '''
 def dnaToRna(dna, startIndex):
-    return
+    new_list=[]
+    dna=dna.replace("T", "U")
+    for i in range(startIndex,len(dna),3):
+        new_list.append(dna[i:i+3])
+    for j in new_list:
+        if j=="UAA"or j=="UGA" or j=="UAG":
+          new=new_list.index(j)
+          return new_list[:new+1]   
+    return new_list    
 
 
 '''
@@ -186,10 +201,14 @@ def runFullProgram():
 
 # This code runs the test cases to check your work
 if __name__ == "__main__":
-    print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
-    test.week1Tests()
-    print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")
-    runWeek1()
+    # print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
+    # test.week1Tests()
+    # print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")
+    # runWeek1()
+    # test.testReadFile()
+    test.testDnaToRna()
+
+
 
     ## Uncomment these for Week 2 ##
     """
